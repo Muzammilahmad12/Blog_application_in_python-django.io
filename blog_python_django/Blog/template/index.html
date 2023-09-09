@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block title %}Wellcome to blog page{% endblock title %}
+
+
+{% block content %}
+
+            <!-- Set up your HTML -->
+            <div class="owl-carousel">
+               
+               {% for category in category %}
+                <div class="card" style="margin-left:10px;">
+                    <div >
+                        <img src="/media/{{category.image}}" class="img-fluid" style="height: 280px; width:390px;">
+                    </div>
+                <div class="card-body">
+                    <div class="card-title">
+                        {{category.title}}
+                    </div>
+                    <p class="text-truncate" style="margin-bottom: auto;">{{category.description|safe}}</p>
+                </div>
+                <div class="container">
+                    <a href="/category/{{category.url}}" class="btn bg-primary text-white">View</a>
+                </div>
+                </div>
+               {% endfor %}
+                
+              </div>
+             
+    <div class="container margin">
+            {% for p in posts %}
+            <div class="row">
+                <div class="col-md-8 col-sm-12">
+                {{p.content |truncatewords:70| safe}}
+                <div class="mt-20">
+                    <a href="/blog/{{p.url}}" class="btn bg-primary text-white">Read More</a>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-12">
+                <img src="/media/{{p.image}}" class="img-fluid" style="margin-top: 50px;">
+            </div>
+            </div>
+            {% endfor %}
+        
+ </div>
+    
+{% endblock content %}
+    

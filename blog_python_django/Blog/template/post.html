@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block title %}Posts{% endblock title %}
+
+{% block content %}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-12 col-md-10">
+                <h3 class="margin">{{post.title}}</h3>
+                <p>({{post.cat.title}})</p>
+                <img src="/media/{{post.image}}" class="img-fluid" style="height: 60vh;width: 100vw;object-fit: cover;">
+                <br>
+                <p>{{post.content|safe}}</p>
+               <div class="fb-like" data-href="http://127.0.0.1:8000/blog/{{post.url}}" data-width="" data-layout="" data-action="" data-size="" data-share="true"></div><br>
+                <div class="fb-comments" data-href="http://127.0.0.1:8000/blog/{{post.url}}" data-width="" data-numposts="10"></div>
+            </div>
+            <div class="col-sm-12 col-md-2">
+                {% for category in category %}
+                <div class="card" style="margin-bottom:10px; ">
+                    <div >
+                        <img src="/media/{{category.image}}" class="img-fluid" style="height: 150px; width:300px;">
+                    </div>
+                <div class="card-body">
+                    <b>
+                        {{category.title}}
+                    </b>
+                    <p class="text-truncate" style="margin-bottom: auto;">{{category.description|safe}}</p>
+                </div>
+                <div class="container">
+                    <a href="/category/{{category.url}}" class="btn btn-primary">View</a>
+                </div>
+                </div>
+               {% endfor %}
+            </div>
+        </div>
+    </div>
+
+{% endblock content %}

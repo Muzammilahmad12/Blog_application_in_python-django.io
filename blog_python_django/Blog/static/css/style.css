@@ -1,0 +1,27 @@
+.bg-primary{
+    background-color: #477!important;
+}
+.mt-20{
+    margin-top: 20px;
+}
+.margin{
+    margin-top:15px;
+    margin-bottom: 10px;
+}
+/*Footer*/
+.footer{
+    width: 100%;
+    text-align: center;
+    padding: 30px 0;
+    background: #477;
+    color:#fff
+}
+.footer h4{
+    margin-bottom: 25px;
+    margin-top: 20px;
+    font-weight: 600;
+}
+.footer p{
+    color:#fff
+}
+

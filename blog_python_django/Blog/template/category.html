@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %}Blog Page{% endblock title %}
+
+
+{% block content %}
+     <div class="container">
+    <h3 class="margin">{{cat.title}}</h3>
+    <div>
+        <img src="/media/{{cat.image}}" class="img-fluid" style="max-height: 400px; width: 100%; object-fit: cover;">
+    </div>
+    <div class="collection">
+        {% for p in posts %}
+       <h3 class="margin"><a href="/blog/{{p.url}}" class="collection-item">{{p.title}}</a></h3><br>
+        {%empty%}
+        <h3>No Post in this Category</h3>
+        {% endfor %}
+            
+        
+    </div>
+</div>
+
+
+{% endblock content %}
+    
